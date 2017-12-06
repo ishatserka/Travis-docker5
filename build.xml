@@ -1,0 +1,27 @@
+<project default="run">
+	
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+	
+    <target name="compile" depends="clean">
+    	<mkdir dir="build/classes"/>    	
+        <javac sourcepath="e:\git\Travis-docker5" srcdir="src" destdir="build/classes">
+        	<include name="**/*.java"/>
+        </javac>
+    </target>
+
+    <target name="jar" depends="compile">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/HelloDocker.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="com.travis.docker.HelloDocker"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="build/jar/HelloDocker.jar" fork="true"/>
+    </target>
+
+</project>
