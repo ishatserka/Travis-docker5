@@ -1,2 +1,9 @@
+sudo: required
 language: java
-script: ant run
+services:
+  - docker
+script:
+	- ant run
+	- docker build -t ishatserka/hellodocker .
+
+
