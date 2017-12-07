@@ -1,12 +1,12 @@
 <project default="run">
-	
+	<property name="JAVA_HOME" value="c:/Program Files/Java/jdk1.8.0_121_"/>
     <target name="clean">
         <delete dir="build"/>
     </target>
 	
     <target name="compile" depends="clean">
     	<mkdir dir="build/classes"/>    	
-        <javac sourcepath="e:\git\Travis-docker5" srcdir="src" destdir="build/classes">
+        <javac sourcepath="./Travis-docker5" srcdir="src" destdir="build/classes">
         	<include name="**/*.java"/>
         </javac>
     </target>
